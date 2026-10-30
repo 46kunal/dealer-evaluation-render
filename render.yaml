@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: dealer-product-details
+    runtime: python
+    plan: free
+    rootDir: products_list
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+  - type: web
+    name: dealer-pricing
+    runtime: node
+    plan: free
+    rootDir: dealer_details
+    buildCommand: npm ci
+    startCommand: npm start
+  - type: web
+    name: dealer-evaluation
+    runtime: python
+    plan: free
+    rootDir: dealer_evaluation_frontend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    envVars:
+      - key: PRODUCT_API_URL
+        value: https://dealer-product-details.onrender.com
+      - key: DEALER_API_URL
+        value: https://dealer-pricing.onrender.com
