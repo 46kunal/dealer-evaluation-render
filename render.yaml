@@ -24,4 +24,4 @@ services:
       - key: PRODUCT_API_URL
         value: https://dealer-product-details.onrender.com
       - key: DEALER_API_URL
-        value: https://dealer-pricing.onrender.com
+        value: https://dealer-pricing-8rra.onrender.com
