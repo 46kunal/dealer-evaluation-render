@@ -6,8 +6,8 @@
 }
   </style>
   <script>
-    let produrl = "__PRODUCT_API_URL__/"
-    let dealerurl = "__DEALER_API_URL__/"
+    let produrl = "https://dealer-product-details.onrender.com/"
+    let dealerurl = "https://dealer-pricing-8rra.onrender.com/"
 
     axios.get(produrl+"products").then(res=>{
       let selEl = document.createElement("select");
